@@ -1,11 +1,7 @@
-v# Alpine base image v.3.10 that contains python 3.5.7
+# Alpine base image v.3.10 that contains python 3.5.7
 FROM python:3.5.7-alpine3.10
 
 LABEL maintainer="GOCAS"
-
-# Environment Variables
-ENV DEVICE                   RPI
-#ENV DEVICE                   LAPTOP
 
 # Copy files
 COPY . /Robot1ControllerMs
@@ -15,13 +11,21 @@ WORKDIR /Robot1ControllerMs
 # Remove cache,tmp files and update
 RUN rm -rf /var/cache/apk/* && \
     rm -rf /tmp/* && \
-    apk update && \
+    apk update
 # Install necessary libs for rpi.gpio
-    apk add --no-cache gcc musl-dev && \
+RUN apk add --no-cache gcc musl-dev
+
 # Install rpi.gpio  to have access to gpio pins from docker
-    pip install --no-cache-dir rpi.gpio && \
+RUN pip install --no-cache-dir rpi.gpio
+
+# Install flask
+RUN pip install flask
+
 # Remove libs
-    apk del gcc musl-dev
+RUN apk del gcc musl-dev
+
+# Expose port
+EXPOSE 8080
 
 # Final command
-ENTRYPOINT ["sh","-c","python3 app.py"]
+CMD ["python","app.py"]
