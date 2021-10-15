@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  rc1:
+    build:
+      context: ./robot_1_controller
+      dockerfile: Dockerfile
+      environment:
+      - PYTHONUNBUFFERED=1
+  at1:
+    build:
+      context: ./assembly_task_1
+      dockerfile: Dockerfile
+    volumes:
+      - /tmp:/tmp
+    environment:
+      - PYTHONUNBUFFERED=1
+    mem_limit: 500m
