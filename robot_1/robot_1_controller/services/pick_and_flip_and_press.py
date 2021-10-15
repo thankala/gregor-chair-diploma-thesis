@@ -1,6 +1,7 @@
 import time
 from gpio.gpio_controller import GpioController
 
+
 class PickAndFlipAndPress:
     def __init__(self):
         print("\n \n pick_and_flip_and_press service has just started \n \n")
@@ -15,8 +16,7 @@ class PickAndFlipAndPress:
             time.sleep(0.5)
             gpio.gpio_control('grip_f', 0.7)
             gpio.gpio_control('grip_b', 0.7)
-            time.sleep(0.5)        
-            print('PickAndFlipAndPress Finished')
-            return
+            time.sleep(0.5)
+            return 'ok'
         except (ConnectionResetError, OSError) as e:
-            print(e)
+            return e

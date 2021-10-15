@@ -19,6 +19,6 @@ class ScrewPickAndFasten:
             gpio.gpio_control('led', 1)
             time.sleep(0.5)
             print('ScrewPickAndFasten Finished')
-            return
+            return 'ok'
         except (ConnectionResetError, OSError) as e:
-            print(e)
+            return e

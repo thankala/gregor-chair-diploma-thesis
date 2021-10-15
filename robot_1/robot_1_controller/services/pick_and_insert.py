@@ -15,6 +15,6 @@ class PickAndInsert:
             gpio.gpio_control('wrist_b', 1.105)
             time.sleep(0.5)
             print('PickAndInsert Finished')
-            return
+            return 'ok'
         except (ConnectionResetError, OSError) as e:
-            print(e)
+            return e

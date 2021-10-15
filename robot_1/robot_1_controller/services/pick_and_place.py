@@ -15,6 +15,6 @@ class PickAndPlace:
             gpio.gpio_control('elbow_b', 1.35)
             time.sleep(0.5)
             print('PickAndPlace finished')
-            return
+            return 'ok'
         except (ConnectionResetError, OSError) as e:
-            print(e)
+            return e
