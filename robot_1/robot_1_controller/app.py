@@ -6,19 +6,19 @@ app = Flask(__name__)
 def move():
     return "<p>Move!</p>"
 
-@app.route("/pickandflipandpress")
+@app.route("/1")
 def pick_and_flip_and_press():
     return "<p>Pick and Flip and Press</p>"
 
-@app.route("/pickandinsert")
+@app.route("/2")
 def pick_and_insert():
     return "<p>Pick and Insert</p>"
 
-@app.route("/pickandplace")
+@app.route("/3")
 def pick_and_place():
     return "<p>Pick and place</p>"
 
-@app.route("/screwpickandfasten")
+@app.route("/4")
 def screw_pick_and_fasten():
     return "<p>Screw pick and fasten</p>"
 

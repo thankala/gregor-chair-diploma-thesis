@@ -1,8 +1,6 @@
 import time
 
-
 class ScrewPickAndFasten:
-
     def __init__(self):
         print("\n \n ScrewPickAndFasten Service started \n \n")
 
