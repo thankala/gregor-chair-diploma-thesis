@@ -1,14 +1,14 @@
 import time
+from gpio.gpio_controller import GpioController
 
 class PickAndFlipAndPress:
     def __init__(self):
         print("\n \n pick_and_flip_and_press service has just started \n \n")
+        gpio = GpioController()
 
-    def start_working(self, device):
+    def start_working(self):
         try:
             print('PickAndFlipAndPress Started')
-            from gpio.gpio_controller import GpioController
-            gpio = GpioController()
             gpio.init_pins()
             gpio.gpio_control('grip_f', 0.7)
             gpio.gpio_control('grip_b', 0.7)
